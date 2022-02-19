@@ -1,0 +1,26 @@
+@mixin arrow () {
+  cursor: pointer;
+  content: '';
+  left: 47px;
+  position: absolute;
+  border: 12px solid transparent;
+}
+
+.price {
+  position: relative;
+  margin-right: 30px;
+
+  .up:after {
+    @include arrow;
+
+    border-bottom: 16px solid var(--color-background-arrow);
+    bottom: 14px;
+  }
+
+  .down:before {
+    @include arrow;
+
+    border-top: 16px solid var(--color-background-arrow);
+    top: 14px;
+  }
+}

@@ -1,0 +1,73 @@
+.container {
+  width: 250px;
+  height: 380px;
+  background: var(--color-background-card);
+  color: var(--color-text);
+  padding: 26px 31px 16px 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all .3s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 5px 0 30px var(--color-shadow);
+    transform: scale(1.1);
+    transition: all .3s ease;
+  }
+
+  &--booked {
+    user-select: none;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      opacity: .8;
+      background: rgba(231, 231, 231, 0.8);
+
+    }
+    &:after {
+      content: 'ЗАБРОНИРОВАННО';
+      position: absolute;
+      font-weight: bold;
+      top: 147px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+
+  .image {
+    width: 188px;
+    height: 170px;
+    background: var(--color-background-image);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .area {
+    margin-bottom: 8px;
+  }
+
+  .price {
+    font-weight: bold;
+    margin-bottom: 14px;
+  }
+
+  .button {
+    font-weight: bold;
+    padding: 12px 40px;
+    margin-bottom: 15px;
+    background: var(--color-background-button);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}

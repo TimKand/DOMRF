@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTypedSelector } from "hooks/useTypedSelector";
 import { cardData } from 'mock/mockCard'
 import Form from "components/Form";
@@ -28,7 +28,7 @@ const App = () => {
         setIsShowModal(false)
     }
 
-    const getFilter = () => {
+    const getFilter = useCallback(() => {
         let filtered = cardData;
 
         if (checkbox) {
@@ -48,9 +48,9 @@ const App = () => {
         }
 
         setData(filtered)
-    }
+    }, [checkbox, input, priceUp, priceDown])
 
-    useEffect(() => getFilter(), [checkbox, input, priceUp, priceDown])
+    useEffect(() => getFilter(), [checkbox, input, priceUp, priceDown, getFilter])
 
       return (
         <>
